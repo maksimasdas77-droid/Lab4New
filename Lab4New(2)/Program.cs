@@ -53,6 +53,11 @@ internal class Program
         Console.WriteLine(box2);
         Console.WriteLine();
 
+        //Driver driver1 = new Driver();
+        //Console.WriteLine(driver1);
+        //driver1.IslockCar(car1);
+        //Console.WriteLine(driver1);
+
         Console.ReadKey();
     }
 }

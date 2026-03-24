@@ -41,6 +41,11 @@ namespace Lab4New_2_
             return box.hightlightRunway(this);
         }
 
+        public Driver.lockcar WhatCarUse(Driver driver)
+        {
+            return driver.IslockCar(this);
+        }
+
         public override string? ToString()
         {
             return $"Автомобиль: {Name}, двигатель: {Engine.Name}. " +
