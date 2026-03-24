@@ -1,22 +1,57 @@
 ﻿using Lab4New_2_;
+using System.Numerics;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Engine engine1 = new Engine();
-        Engine engine2 = new Engine("CR1245");
-        Engine engine3 = new Engine("CR1111");
-        Engine engine4 = new Engine("CR2222");
-        Engine engine5 = new Engine("C33333");
         Car car1 = new Car();
-        Car car2 = new Car("Тойота", engine1, 3);
-        Car car3 = new Car("Лексус", engine5, 2);
-        Console.WriteLine(engine1);
         Console.WriteLine(car1);
+
+        Car car2 = new Car("Патрол");
         Console.WriteLine(car2);
+
+        Car car3 = new Car("Дракон", "Волговский", 2);
         Console.WriteLine(car3);
 
+        Car car4 = new Car("Мазурик", "ЮСГ V-16", 3);
+        Console.WriteLine(car4);
+
+        Box box1 = new Box();
+        Console.WriteLine(box1);
+
+        Box box2 = new Box("УТО", 1, 2, 3, 4);
+        Console.WriteLine(box2);
+
+        Console.WriteLine($"Автомобиль {car1.Name} запрашивает заезд в гараж {box2.Name}");
+        Console.WriteLine(car1.LandingRequest(box2));
+        Console.WriteLine(car1);
+        Console.WriteLine(box2);
+        Console.WriteLine();
+
+        Console.WriteLine($"Автомобиль {car2.Name} запрашивает заезд в гараж {box2.Name}");
+        Console.WriteLine(car2.LandingRequest(box2));
+        Console.WriteLine(car2);
+        Console.WriteLine(box2);
+        Console.WriteLine();
+
+        Console.WriteLine($"Автомобиль {car1.Name} запрашивает заезд в гараж {box2.Name}");
+        Console.WriteLine(car1.LandingRequest(box2));
+        Console.WriteLine(car2);
+        Console.WriteLine(box2);
+        Console.WriteLine();
+
+        Console.WriteLine($"Автомобиль {car3.Name} запрашивает заезд в гараж {box2.Name}");
+        Console.WriteLine(car3.LandingRequest(box2));
+        Console.WriteLine(car3);
+        Console.WriteLine(box2);
+        Console.WriteLine();
+
+        Console.WriteLine($"Автомобиль {car4.Name} запрашивает заезд в гараж {box2.Name}");
+        Console.WriteLine(car4.LandingRequest(box2));
+        Console.WriteLine(car4);
+        Console.WriteLine(box2);
+        Console.WriteLine();
 
         Console.ReadKey();
     }

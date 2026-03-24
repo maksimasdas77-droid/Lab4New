@@ -14,6 +14,8 @@ namespace Lab4New_2_
         private int numbergate;
         private int volume;
 
+        public Car? carinside {  get; set; }
+      
         public int Numbergate => numbergate;
 
         public int Volume
@@ -37,10 +39,11 @@ namespace Lab4New_2_
             numbergate = _counter;
             Volume = volume;
         }
-
-        public override string? ToString()
+        public override string ToString()
         {
-            return $"Ворота номер: {Numbergate}, объемом - {Volume} м3. ";
+            return carinside == null
+                ? $"Ворота номер {Numbergate} (объём {Volume}) — свободны"
+                : $"Ворота номер {Numbergate} (объём {Volume}) — заняты: {carinside.Name}";
         }
     }
 }

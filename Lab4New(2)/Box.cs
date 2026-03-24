@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static Lab4New_2_.Box;
 
 namespace Lab4New_2_
 {
     internal class Box
     {
+        public enum ResultRequest { Success = 1, NoFreeWay = 0, DoubleRequest = -1 }
         public string Name { get; set; }
 
         Gate[] gates;
@@ -28,7 +31,27 @@ namespace Lab4New_2_
                 gates[i] = new Gate(volumes[i]);
             }
         }
+        internal ResultRequest hightlightRunway(Car car)
+        {
+            //0 - нет полос
+            //1 - выделена полоса
+            //-1 - повторный запрос
+            foreach (Gate gate in gates)
+            {
+                if (gate.carinside?.Name == car.Name) return ResultRequest.DoubleRequest;
+            }
+            for (int i = 0; i < gates.Length; i++)
+            {
+                if (gates[i]?.carinside == null)
+                {
+                    gates[i].carinside = car;
+                    car.box = this;
+                    return ResultRequest.Success;
+                }
 
+            }
+            return ResultRequest.NoFreeWay;
+        }
         public override string? ToString()
         {
             string result = $"Гараж: {Name} ";
