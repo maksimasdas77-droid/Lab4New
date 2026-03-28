@@ -10,6 +10,7 @@ namespace Lab4New_2_
 {
     internal class Gate
     {
+        public Box? Box { get; set; }
         private static int _counter = 0;
         private int numbergate;
         private int volume;

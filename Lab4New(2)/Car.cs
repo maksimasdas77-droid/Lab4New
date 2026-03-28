@@ -13,7 +13,7 @@ namespace Lab4New_2_
         public string Name { get; set; }
         public Engine Engine { get; set; }
 
-        public Box? box { get; set; }
+        public Gate? Gate { get; set; }
         public int Needpas
         {
             get => needpas;
@@ -49,7 +49,7 @@ namespace Lab4New_2_
         public override string? ToString()
         {
             return $"Автомобиль: {Name}, двигатель: {Engine.Name}. " +
-                (box == null ? "Гаража в резерве нет" : $"Зарезервирован гараж {box.Name}");
+                (Gate == null ? "Гаража в резерве нет" : $"Зарезервированы ворота №{Gate.Numbergate} гаража {Gate.Box?.Name}"); ;
         }
     }
 }
